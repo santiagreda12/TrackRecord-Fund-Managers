@@ -175,7 +175,7 @@ function App() {
   }, []);
 
   if (loading) {
-    return <div className="container mt-8 text-center text-white">Sincronizando valores del mercado (Scraping)...</div>;
+    return <div className="container mt-8 text-center text-white">Cargando base de datos de gestores...</div>;
   }
 
   return (
