@@ -19,7 +19,7 @@ function AppContent({ managers, toggleCompare, compareList, setCompareList, limi
       <header>
         <Link to="/" className="logo">
           <TrendingUp size={28} color="var(--accent-primary)" />
-          <span>FundTrack PRT</span>
+          <span>Track Record Fund Managers</span>
         </Link>
         <nav className="flex gap-6" style={{alignItems: 'center'}}>
           <Link to="/" className="nav-link">Explorar</Link>
