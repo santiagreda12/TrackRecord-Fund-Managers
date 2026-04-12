@@ -115,7 +115,7 @@ function AppContent({ managers, toggleCompare, compareList, setCompareList, limi
         textAlign: 'center', color: 'var(--text-muted)', fontSize: '0.9rem'
       }}>
         <div style={{marginBottom: '12px'}}>
-          © {new Date().getFullYear()} FundTrack PRT. Todos los derechos reservados.
+          © {new Date().getFullYear()} Track Record Fund Managers. Todos los derechos reservados.
         </div>
         <div style={{display: 'flex', justifyContent: 'center', gap: '20px'}}>
           <a href="mailto:laminenbo3@gmail.com" style={{color: 'var(--accent-primary)', textDecoration: 'none'}}>
