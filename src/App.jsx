@@ -18,8 +18,8 @@ function AppContent({ managers, toggleCompare, compareList, setCompareList, limi
     <div className="container">
       <header>
         <Link to="/" className="logo">
-          <img src="/managers/logo.png" alt="Logo" style={{height: '68px', width: 'auto', marginRight: '10px'}} />
-          <span>Track Record Fund Managers</span>
+          <img src="/managers/logo.png" alt="Logo" style={{height: '90px', width: 'auto', marginRight: '15px'}} />
+          <span style={{fontSize: '1.8rem'}}>Track Record Fund Managers</span>
         </Link>
         <nav className="flex gap-6" style={{alignItems: 'center'}}>
           <Link to="/" className="nav-link">Explorar</Link>
