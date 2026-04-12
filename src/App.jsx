@@ -10,6 +10,14 @@ import './index.css';
 
 export const DataContext = createContext([]);
 
+function ScrollToTop() {
+  const { pathname } = useLocation();
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [pathname]);
+  return null;
+}
+
 function AppContent({ managers, toggleCompare, compareList, setCompareList, limitReached, showSuggest, setShowSuggest }) {
   const location = useLocation();
   const isComparePage = location.pathname === '/comparar';
@@ -17,7 +25,7 @@ function AppContent({ managers, toggleCompare, compareList, setCompareList, limi
   return (
     <div className="container">
       <header>
-        <Link to="/" className="logo">
+        <Link to="/" className="logo" onClick={() => window.scrollTo(0, 0)}>
           <img src="/managers/logo.png" alt="Logo" style={{height: '90px', width: 'auto', marginRight: '15px'}} />
           <span style={{fontSize: '1.8rem'}}>Track Record Fund Managers</span>
         </Link>
@@ -168,6 +176,7 @@ function App() {
   return (
     <DataContext.Provider value={managers}>
       <Router>
+        <ScrollToTop />
         <AppContent 
           managers={managers} 
           toggleCompare={toggleCompare} 
