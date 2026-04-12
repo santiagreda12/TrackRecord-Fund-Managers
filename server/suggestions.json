@@ -1,0 +1,37 @@
+[
+  {
+    "fecha": "2026-04-06T22:00:00.000Z",
+    "nombre": "Ejemplo: Warren Buffett",
+    "fondo": "Berkshire Hathaway",
+    "motivo": "Ejemplo de sugerencia inicial",
+    "ip": "127.0.0.1"
+  },
+  {
+    "fecha": "2026-04-06T20:46:41.286Z",
+    "nombre": "Test Gestor",
+    "fondo": "Test Fondo",
+    "motivo": "Prueba",
+    "ip": "::1"
+  },
+  {
+    "fecha": "2026-04-06T20:47:44.103Z",
+    "nombre": "q",
+    "fondo": "q",
+    "motivo": "",
+    "ip": "::ffff:127.0.0.1"
+  },
+  {
+    "fecha": "2026-04-06T22:07:19.947Z",
+    "nombre": "Cathie Wood",
+    "fondo": "ARK Invest",
+    "motivo": "InnovaciInnovacion disruptiva y tecnologia.",
+    "ip": "::1"
+  },
+  {
+    "fecha": "2026-04-06T22:11:31.512Z",
+    "nombre": "Warren Buffet",
+    "fondo": "Berkshire Hathaway",
+    "motivo": "",
+    "ip": "::ffff:127.0.0.1"
+  }
+]
