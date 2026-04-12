@@ -18,7 +18,7 @@ function ScrollToTop() {
   return null;
 }
 
-function AppContent({ managers, toggleCompare, compareList, setCompareList, limitReached, showSuggest, setShowSuggest }) {
+function AppContent({ toggleCompare, compareList, setCompareList, limitReached, showSuggest, setShowSuggest }) {
   const location = useLocation();
   const isComparePage = location.pathname === '/comparar';
 
@@ -157,14 +157,19 @@ function App() {
   };
 
   useEffect(() => {
-    fetch('http://localhost:3001/api/managers')
+    // En producción usará la misma ruta de dominio, en local apuntará al 3001
+    const API_URL = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1'
+      ? 'http://localhost:3001/api/managers' 
+      : '/api/managers';
+
+    fetch(API_URL)
       .then(res => res.json())
       .then(data => {
         setManagers(data);
         setLoading(false);
       })
       .catch(err => {
-        console.error("Error fetching data, ensure backend is running at :3001", err);
+        console.error("Error fetching data", err);
         setLoading(false);
       });
   }, []);

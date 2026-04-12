@@ -9,7 +9,10 @@ const AdminSugerencias = () => {
   useEffect(() => {
     const fetchSuggestions = async () => {
       try {
-        const res = await fetch('http://localhost:3001/api/suggestions');
+        const API_URL = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1' 
+          ? 'http://localhost:3001/api/suggestions' 
+          : '/api/suggestions';
+        const res = await fetch(API_URL);
         const data = await res.json();
         setSuggestions(data.reverse()); // Mostrar las más recientes primero
       } catch (err) {

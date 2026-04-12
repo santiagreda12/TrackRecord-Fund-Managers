@@ -30,17 +30,17 @@ const app = express();
 const PORT = 3001;
 const DB_PATH = './server/db.json';
 
-app.use(cors({
-  origin: (origin, callback) => {
-    // Permitir cualquier origen localhost (Vite puede usar 5173, 5174, etc.)
-    if (!origin || origin.startsWith('http://localhost')) {
-      callback(null, true);
-    } else {
-      callback(new Error('No permitido por CORS'));
-    }
-  }
-}));
-app.use(express.json({ limit: '10kb' })); // Limitar tamaño del body
+import path from 'path';
+import { fileURLToPath } from 'url';
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
+
+app.use(cors());
+app.use(express.json({ limit: '10kb' })); 
+
+// Servir la aplicación React estática generada por Vite
+app.use(express.static(path.join(__dirname, '../dist')));
 
 // Endpoint para obtener los gestores y fondos
 app.get('/api/managers', (req, res) => {
@@ -120,7 +120,15 @@ cron.schedule('30 23 * * *', () => {
   runScraper();
 });
 
-app.listen(PORT, () => {
-  console.log(`Backend API ejecutándose en http://localhost:${PORT}`);
+// Enviar peticiones que no sean de API al frontend de React
+app.get('*', (req, res) => {
+  res.sendFile(path.join(__dirname, '../dist/index.html'));
+});
+
+// En producción (Render/Heroku/Railway) usará process.env.PORT, en local será 3001
+const ACTIVE_PORT = process.env.PORT || PORT;
+
+app.listen(ACTIVE_PORT, () => {
+  console.log(`Backend API/Server ejecutándose en puerto ${ACTIVE_PORT}`);
   console.log(`Web scraper programado a las 23:30 diariamente.`);
 });
