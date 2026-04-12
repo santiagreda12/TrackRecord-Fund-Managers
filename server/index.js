@@ -121,7 +121,7 @@ cron.schedule('30 23 * * *', () => {
 });
 
 // Enviar peticiones que no sean de API al frontend de React
-app.get('*', (req, res) => {
+app.use((req, res) => {
   res.sendFile(path.join(__dirname, '../dist/index.html'));
 });
 
