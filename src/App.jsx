@@ -6,6 +6,7 @@ import ManagerDetail from './components/ManagerDetail';
 import SuggestModal from './components/SuggestModal';
 import AdminSugerencias from './components/AdminSugerencias';
 import CompareView from './components/CompareView';
+import TrendingStocks from './components/TrendingStocks';
 import './index.css';
 
 export const DataContext = createContext([]);
@@ -31,6 +32,7 @@ function AppContent({ toggleCompare, compareList, setCompareList, limitReached, 
         </Link>
         <nav className="flex gap-6" style={{alignItems: 'center'}}>
           <Link to="/" className="nav-link">Explorar</Link>
+          <Link to="/tendencias" className="nav-link">Acciones en Tendencia</Link>
           <Link to="/comparar" className="nav-link" style={{position: 'relative'}}>
             Comparativa
             {compareList.length > 0 && (
@@ -70,6 +72,7 @@ function AppContent({ toggleCompare, compareList, setCompareList, limitReached, 
           <Route path="/gestor/:id" element={<ManagerDetail />} />
           <Route path="/admin" element={<AdminSugerencias />} />
           <Route path="/comparar" element={<CompareView compareIds={compareList} toggleCompare={toggleCompare} setCompareIds={setCompareList} />} />
+          <Route path="/tendencias" element={<TrendingStocks />} />
         </Routes>
       </main>
 

@@ -247,7 +247,7 @@ const ManagerDetail = () => {
                   {/* Tarjeta de Rentabilidad y Posiciones Inferior */}
                   <div style={{background: 'rgba(26,26,26,0.95)', border: '1px solid rgba(255,255,255,0.05)', borderRadius: '12px', padding: '24px'}}>
                     <div className="flex justify-between items-center mb-6">
-                      <div className="flex items-center gap-2"><BarChart size={18} color="var(--text-muted)"/> <span style={{fontWeight: '600', fontSize: '1.1rem'}}>Mayores posiciones del fondo</span></div>
+                      <div className="flex items-center gap-2"><BarChart size={18} color="var(--text-muted)"/> <span style={{fontWeight: '600', fontSize: '1.1rem'}}>Posiciones del fondo</span></div>
                       
                       {/* Removed sorting buttons per user request */}
                     </div>
@@ -256,7 +256,7 @@ const ManagerDetail = () => {
                       {fund.topPositions.map(pos => (
                         <div key={pos.ticker} className="flex justify-between items-center" style={{padding: '12px 16px', background: 'rgba(0,0,0,0.2)', borderRadius: '8px'}}>
                           <div className="flex flex-col">
-                            <span style={{fontWeight: '500'}}>{pos.name}</span>
+                            <span style={{fontWeight: '500'}}>{pos.name} <span style={{color: 'var(--text-muted)', fontSize: '0.85rem'}}>({pos.ticker})</span></span>
                             <span style={{fontSize: '0.8rem', color: 'var(--text-muted)'}}>{pos.sector}</span>
                           </div>
                           <div style={{fontWeight: '600'}}>{pos.percentage}%</div>
